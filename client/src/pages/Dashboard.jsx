@@ -12,7 +12,7 @@ const Dashboard = () => {
   const fetchUsers = async () => {
     if (user.role !== 'Admin') return;
     try {
-      const res = await axios.get('http://localhost:8999/api/users', {
+      const res = await axios.get('https://clarigo.onrender.com/api/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(res.data);
@@ -31,7 +31,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this user?')) return;
     try {
-      await axios.delete(`http://localhost:8999/api/users/${id}`, {
+      await axios.delete(`https://clarigo.onrender.com/api/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchUsers();

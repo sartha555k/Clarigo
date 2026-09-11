@@ -43,10 +43,10 @@ const UserModal = ({ isOpen, onClose, user, refresh, token }) => {
         // Edit Mode: only send password if it's provided
         const updateData = { name: formData.name, email: formData.email, role: formData.role };
         if (formData.password) updateData.password = formData.password;
-        await axios.put(`http://localhost:8999/api/users/${user._id}`, updateData, config);
+        await axios.put(`https://clarigo.onrender.com/api/users/${user._id}`, updateData, config);
       } else {
         // Add Mode
-        await axios.post('http://localhost:8999/api/users', formData, config);
+        await axios.post('https://clarigo.onrender.com/api/users', formData, config);
       }
       refresh();
       onClose();

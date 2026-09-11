@@ -34,7 +34,7 @@ const Signup = () => {
     if (!validate()) return;
     
     try {
-      const res = await axios.post('http://localhost:8999/api/auth/register', formData);
+      const res = await axios.post('https://clarigo.onrender.com/api/auth/register', formData);
       login(res.data, res.data.token);
       navigate('/dashboard');
     } catch (err) {
